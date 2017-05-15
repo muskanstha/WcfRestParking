@@ -61,9 +61,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ParkingService1.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\Status.cs" />
     <Compile Include="ParkingService1.svc.cs">
       <DependentUpon>ParkingService1.svc</DependentUpon>
     </Compile>
@@ -74,6 +78,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\WcfRestParking - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
