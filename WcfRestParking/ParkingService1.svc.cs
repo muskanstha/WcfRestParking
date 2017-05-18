@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
@@ -15,10 +16,7 @@ namespace WcfRestParking
     public class ParkingService1 : IParkingService1
     {
         private static string connectionString = "Server=tcp:parkingdbs.database.windows.net,1433;Initial Catalog=ParkingDB;Persist Security Info=False;User ID=parkingdbs;Password=Namaste977;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-        /// <summary>
-        /// deep
-        /// </summary>
-        /// <returns></returns>
+        
         public IList<Status> GetStatuses()
         {
             using (SqlConnection databaseConnection = new SqlConnection(connectionString))
@@ -56,8 +54,15 @@ namespace WcfRestParking
                 return GetStatuses();
             }
         }
-
-        public IList<Status> ChangeStatus(Status aStatus)
+        /// <summary>
+        /// by: deepak
+        /// Every time sensor sends the data Status is updated with the new data
+        /// </summary>
+        /// <param name="aStatus"></param>
+        /// List of new Status is stored in database
+        /// <returns>List of Statuses with the new updated status</returns>
+        /// 
+        public IList<Status>ChangeStatus(Status aStatus)
         {
             using (SqlConnection databaseConnection = new SqlConnection(connectionString))
             {
@@ -68,7 +73,7 @@ namespace WcfRestParking
                 addCommand.Parameters.AddWithValue("@IsFree", aStatus.IsFree);
                 addCommand.Parameters.AddWithValue("@Distance", aStatus.Distance);
 
-                int rowsAffected = addCommand.ExecuteNonQuery();
+                int rowsaffected= addCommand.ExecuteNonQuery();
 
                 return GetStatuses();
             }
