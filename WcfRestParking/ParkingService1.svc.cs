@@ -15,6 +15,10 @@ namespace WcfRestParking
     public class ParkingService1 : IParkingService1
     {
         private static string connectionString = "Server=tcp:parkingdbs.database.windows.net,1433;Initial Catalog=ParkingDB;Persist Security Info=False;User ID=parkingdbs;Password=Namaste977;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        /// <summary>
+        /// deep
+        /// </summary>
+        /// <returns></returns>
         public IList<Status> GetStatuses()
         {
             using (SqlConnection databaseConnection = new SqlConnection(connectionString))
