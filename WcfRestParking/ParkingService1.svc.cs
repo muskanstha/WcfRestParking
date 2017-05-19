@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.Serialization;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using WcfRestParking.Models;
 
 namespace WcfRestParking
@@ -16,7 +19,7 @@ namespace WcfRestParking
     public class ParkingService1 : IParkingService1
     {
         private static string connectionString = "Server=tcp:parkingdbs.database.windows.net,1433;Initial Catalog=ParkingDB;Persist Security Info=False;User ID=parkingdbs;Password=Namaste977;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-        
+
         public IList<Status> GetStatuses()
         {
             using (SqlConnection databaseConnection = new SqlConnection(connectionString))
@@ -62,7 +65,7 @@ namespace WcfRestParking
         /// List of new Status is stored in database
         /// <returns>List of Statuses with the new updated status</returns>
         /// 
-        public IList<Status>ChangeStatus(Status aStatus)
+        public IList<Status> ChangeStatus(Status aStatus)
         {
             using (SqlConnection databaseConnection = new SqlConnection(connectionString))
             {
@@ -73,7 +76,7 @@ namespace WcfRestParking
                 addCommand.Parameters.AddWithValue("@IsFree", aStatus.IsFree);
                 addCommand.Parameters.AddWithValue("@Distance", aStatus.Distance);
 
-                int rowsaffected= addCommand.ExecuteNonQuery();
+                int rowsaffected = addCommand.ExecuteNonQuery();
 
                 return GetStatuses();
             }
@@ -99,7 +102,7 @@ namespace WcfRestParking
                 {
                     while (reader.Read())
                     {
-                        aLogs.Add(new Log(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2),reader.GetString(3)));
+                        aLogs.Add(new Log(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetString(3)));
                     }
                 }
                 return aLogs;
@@ -108,7 +111,7 @@ namespace WcfRestParking
 
         public IList<Log> CreateLog(Log alog)
         {
-            using(SqlConnection databaseConnection = new SqlConnection(connectionString))
+            using (SqlConnection databaseConnection = new SqlConnection(connectionString))
             {
                 databaseConnection.Open();
                 string query = "INSERT Log (Date,SpotNo,Action) VALUES (@Date,@SpotNo,@Action)";
@@ -122,5 +125,22 @@ namespace WcfRestParking
                 return GetLogs();
             }
         }
+
+        public WeatherText.Condition GetCondition()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string uri =
+                    "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition.text%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22dallas%2C%20tx%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+                string content = client.GetStringAsync(uri).Result;
+                JObject ajJObject = JObject.Parse(content);
+                //string theText = ajJObject.query.k
+                WeatherText aRootObjecteatherData = JsonConvert.DeserializeObject<WeatherText>(content);
+                //return new WeatherText("aww");
+                return aRootObjecteatherData.query.results.channel.item.condition;
+            }
+
+        }
     }
+
 }
