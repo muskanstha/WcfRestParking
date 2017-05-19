@@ -71,6 +71,11 @@ namespace WcfRestParking
         }
 
         // Logs
+        /// <summary>
+        /// By: Muskan
+        /// Method to get the current list of logs stored in the database using connection string
+        /// </summary>
+        /// <returns></returns>
         public IList<Log> GetLogs()
         {
             using (SqlConnection databaseConnection = new SqlConnection(connectionString))
@@ -99,7 +104,6 @@ namespace WcfRestParking
                 databaseConnection.Open();
                 string query = "INSERT Log (Date,SpotNo,Action) VALUES (@Date,@SpotNo,@Action)";
                 SqlCommand addCommand = new SqlCommand(query, databaseConnection);
-                //addCommand.Parameters.AddWithValue("@Id", alog.Id);
                 addCommand.Parameters.AddWithValue("@Date", alog.Date);
                 addCommand.Parameters.AddWithValue("@SpotNo", alog.SpotNo);
                 addCommand.Parameters.AddWithValue("@Action", alog.Action);
