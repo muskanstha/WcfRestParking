@@ -19,9 +19,11 @@ namespace WcfRestParking
         [OperationContract]
         [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json, UriTemplate = "statuses/")]
         IList<Status> CreateStatus(Status aStatus);
+
         [OperationContract]
         [WebInvoke(Method = "PUT", ResponseFormat = WebMessageFormat.Json, UriTemplate = "statuses/")]
         IList<Status> ChangeStatus(Status aStatus);
+       
 
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "logs/")]
