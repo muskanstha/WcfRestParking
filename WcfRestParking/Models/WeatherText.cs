@@ -5,6 +5,11 @@ using System.Web;
 
 namespace WcfRestParking.Models
 {
+    /// <summary>
+    /// Class to support getting information from yahoo weather services
+    /// By Muskan 
+    /// Generated using json2charp.com
+    /// </summary>
     public class WeatherText
     {
         public Query query { get; set; }

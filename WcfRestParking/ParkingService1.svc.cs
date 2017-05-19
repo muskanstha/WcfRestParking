@@ -125,7 +125,11 @@ namespace WcfRestParking
                 return GetLogs();
             }
         }
-
+        /// <summary>
+        /// Using yahoo weather api to get the current weather status of Roskilde
+        /// By: Muskan
+        /// </summary>
+        /// <returns></returns>
         public WeatherText.Condition GetCondition()
         {
             using (HttpClient client = new HttpClient())
