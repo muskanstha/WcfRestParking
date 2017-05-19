@@ -5,6 +5,9 @@ using System.Web;
 
 namespace WcfRestParking.Models
 {
+    /// <summary>
+    /// CLass for the log table in database with matching data type
+    /// </summary>
     public class Status
     {
         public string SpotNo { get; set; }

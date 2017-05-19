@@ -12,7 +12,7 @@ namespace WcfRestParking.Tests
     [TestClass()]
     public class ParkingService1Tests
     {
-        private ParkingService1 s= new ParkingService1();
+        private ParkingService1 s = new ParkingService1();
         [TestMethod()]
         public void GetStatusesTest()
         {

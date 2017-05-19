@@ -8,15 +8,25 @@ namespace WcfRestParking.Models
 {
     public class Log
     {
+        /// <summary>
+        /// CLass for the log table in database  with matching data type
+        /// </summary>
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public  string SpotNo { get; set; }
+        public string SpotNo { get; set; }
         public string Action { get; set; }
 
         public Log()
         {
-            
+
         }
+        /// <summary>
+        /// Constructor for reading data.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="date"></param>
+        /// <param name="spotNo"></param>
+        /// <param name="action"></param>
 
         public Log(int id, DateTime date, string spotNo, string action)
         {
@@ -25,6 +35,12 @@ namespace WcfRestParking.Models
             SpotNo = spotNo;
             Action = action;
         }
+        /// <summary>
+        /// constructor for posting data. Id is auto incremental and identity. Not required to provide.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="spotNo"></param>
+        /// <param name="action"></param>
         public Log(DateTime date, string spotNo, string action)
         {
             Date = date;
