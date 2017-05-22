@@ -11,13 +11,9 @@ namespace WcfRestParking.Models
     /// </summary>
     public class Status
     {
-        public string SpotNo { get; set; }
-        public string IsFree { get; set; }
-        public decimal Distance { get; set; }
         /// <summary>
         /// By: bipin . prevent null value
         /// </summary>
-        public string spotNO
         private string _SpotNo;
         public string SpotNo
         {
@@ -28,16 +24,16 @@ namespace WcfRestParking.Models
                 _SpotNo = value;
             }
         }
+        public string IsFree { get; set; }
+        public decimal Distance { get; set; }
+
+
         /// <summary>
         /// constructor with parameters
         /// </summary>
         /// <param name="spotNo"></param>
         /// <param name="isFree"></param>
         /// <param name="distance"></param>
-        public string IsFree { get; set; }
-        public decimal Distance { get; set; }
-
-
         public Status(string spotNo, string isFree, decimal distance)
         {
             SpotNo = spotNo;
