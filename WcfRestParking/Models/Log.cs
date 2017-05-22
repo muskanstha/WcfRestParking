@@ -10,12 +10,15 @@ namespace WcfRestParking.Models
     {
         /// <summary>
         /// CLass for the log table in database  with matching data type
+        /// marcus
         /// </summary>
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public string SpotNo { get; set; }
         public string Action { get; set; }
-
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public Log()
         {
 

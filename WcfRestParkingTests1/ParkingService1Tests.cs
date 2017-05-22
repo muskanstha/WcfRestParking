@@ -39,6 +39,16 @@ namespace WcfRestParking.Tests
                 Assert.AreEqual("Value cannot be null", ex.Message);
             }
         }
+        //[TestMethod]
+
+        //public void CreateStatus()
+        //{
+        //    Status aStatus= new Status(){SpotNo = "2D",IsFree = "No",Distance = 2};
+        //    int size = service.GetStatuses().Count;
+        //    service.CreateStatus(aStatus);
+        //    Assert.AreEqual(size+1,service.GetStatuses().Count);
+        //}
+
 
     }
 }
