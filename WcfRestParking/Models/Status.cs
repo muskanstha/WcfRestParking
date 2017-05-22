@@ -13,6 +13,15 @@ namespace WcfRestParking.Models
         public string SpotNo { get; set; }
         public string IsFree { get; set; }
         public decimal Distance { get; set; }
+        public string spotNO
+        {
+            get { return SpotNo; }
+            set
+            {
+                if (value == null) throw new Exception("Value cannot be null");
+                SpotNo = value;
+            }
+        }
 
         public Status(string spotNo, string isFree, decimal distance)
         {
