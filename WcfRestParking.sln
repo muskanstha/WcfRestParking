@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfRestParking", "WcfRestParking\WcfRestParking.csproj", "{7EE601C5-719A-454C-8CD0-FC81F2E363CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfRestParkingTests", "WcfRestParkingTests\WcfRestParkingTests.csproj", "{D580E0CD-0403-4A78-8873-8F05E3D1CD54}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{7EE601C5-719A-454C-8CD0-FC81F2E363CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EE601C5-719A-454C-8CD0-FC81F2E363CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EE601C5-719A-454C-8CD0-FC81F2E363CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D580E0CD-0403-4A78-8873-8F05E3D1CD54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D580E0CD-0403-4A78-8873-8F05E3D1CD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D580E0CD-0403-4A78-8873-8F05E3D1CD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D580E0CD-0403-4A78-8873-8F05E3D1CD54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

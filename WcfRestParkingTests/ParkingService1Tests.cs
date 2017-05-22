@@ -12,7 +12,13 @@ namespace WcfRestParking.Tests
     [TestClass()]
     public class ParkingService1Tests
     {
-        private ParkingService1 s = new ParkingService1();
+        private IParkingService1 service1;
+        private Status status;
+        [TestInitialize]
+        public void
+
+
+       
         [TestMethod()]
         public void GetStatusesTest()
         {
