@@ -31,7 +31,7 @@ namespace WcfRestParking.Tests
         {
             try
             {
-                status.spotNO = null;
+                status.SpotNo = null;
                 Assert.Fail();
             }
             catch (Exception ex)

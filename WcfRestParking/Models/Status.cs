@@ -10,18 +10,19 @@ namespace WcfRestParking.Models
     /// </summary>
     public class Status
     {
-        public string SpotNo { get; set; }
-        public string IsFree { get; set; }
-        public decimal Distance { get; set; }
-        public string spotNO
+        private string _SpotNo;
+        public string SpotNo
         {
-            get { return SpotNo; }
+            get { return _SpotNo; }
             set
             {
                 if (value == null) throw new Exception("Value cannot be null");
-                SpotNo = value;
+                _SpotNo = value;
             }
         }
+        public string IsFree { get; set; }
+        public decimal Distance { get; set; }
+
 
         public Status(string spotNo, string isFree, decimal distance)
         {
@@ -32,7 +33,7 @@ namespace WcfRestParking.Models
 
         public Status()
         {
-            
+
         }
 
     }
