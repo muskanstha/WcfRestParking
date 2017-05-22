@@ -25,6 +25,9 @@ namespace WcfRestParking
         IList<Status> ChangeStatus(Status aStatus);
 
         [OperationContract]
+        [WebInvoke(Method = "DELETE",ResponseFormat = WebMessageFormat.Json, UriTemplate = "statuses/{spotNo}")]
+        IList<Status> DeleteStatuses(string spotNo);
+        [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "logs/")]
         IList<Log> GetLogs();
 

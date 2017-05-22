@@ -81,6 +81,28 @@ namespace WcfRestParking
                 return GetStatuses();
             }
         }
+        /// <summary>
+        /// by:deepak
+        /// remove the specific status from the list provided the sportNo
+        /// new list is store in the database
+        /// </summary>
+        /// <param name="spotNo"></param>
+        /// <returns>new list of status</returns>
+        public IList<Status> DeleteStatuses(string spotNo)
+        {
+            using (SqlConnection databaseConnection= new SqlConnection(connectionString))
+            {
+                {
+                    databaseConnection.Open();
+                    string query = "DELETE From Status Where SpotNO=@spotNo";
+                    SqlCommand deleteCommand= new SqlCommand(query,databaseConnection);
+                    deleteCommand.Parameters.AddWithValue("@SpotNo",spotNo);
+                    int rowsaffected = deleteCommand.ExecuteNonQuery();
+                    return GetStatuses();
+                }
+            }
+        }
+
 
         // Logs
         /// <summary>
