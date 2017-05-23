@@ -20,6 +20,11 @@ namespace WcfRestParking
     {
         private static string connectionString = "Server=tcp:parkingdbs.database.windows.net,1433;Initial Catalog=ParkingDB;Persist Security Info=False;User ID=parkingdbs;Password=Namaste977;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
+        /// <summary>
+        /// By: Bipin Rai 
+        /// MEthod that gets the current list of statuses stored in the azure database
+        /// </summary>
+        /// <returns></returns>
         public IList<Status> GetStatuses()
         {
             using (SqlConnection databaseConnection = new SqlConnection(connectionString))
@@ -40,7 +45,12 @@ namespace WcfRestParking
                 return aStatuses;
             }
         }
-
+        /// <summary>
+        /// By: Yogesh 
+        /// method to create status
+        /// </summary>
+        /// <param name="aStatus"></param>
+        /// <returns></returns>
         public IList<Status> CreateStatus(Status aStatus)
         {
             using (SqlConnection databaseConnection = new SqlConnection(connectionString))
@@ -58,7 +68,7 @@ namespace WcfRestParking
             }
         }
         /// <summary>
-        /// by: deepak
+        /// by: Deepak
         /// Every time sensor sends the data Status is updated with the new data
         /// </summary>
         /// <param name="aStatus"></param>
@@ -82,7 +92,7 @@ namespace WcfRestParking
             }
         }
         /// <summary>
-        /// by:deepak
+        /// by:Deepak
         /// remove the specific status from the list provided the sportNo
         /// new list is store in the database
         /// </summary>
@@ -130,6 +140,12 @@ namespace WcfRestParking
                 return aLogs;
             }
         }
+        /// <summary>
+        /// By: Muskan
+        /// Method to create logs in the database
+        /// </summary>
+        /// <param name="alog"></param>
+        /// <returns></returns>
 
         public IList<Log> CreateLog(Log alog)
         {
