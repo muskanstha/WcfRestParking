@@ -137,6 +137,7 @@ namespace WcfRestParking
                         aLogs.Add(new Log(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetString(3)));
                     }
                 }
+                aLogs.Sort();
                 return aLogs;
             }
         }

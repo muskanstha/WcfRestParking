@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Web;
 
 namespace WcfRestParking.Models
 {
-    public class Log
+    public class Log:IComparable<Log>
     {
         /// <summary>
         /// CLass for the log table in database  with matching data type
@@ -55,5 +56,16 @@ namespace WcfRestParking.Models
             return $"Id: {Id}, Date: {Date}, SpotNo: {SpotNo}, Action: {Action}";
         }
 
+        /// <summary>
+        /// muskan
+        /// compare for sorting
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+
+        public int CompareTo(Log other)
+        {
+            return this.Date.CompareTo(other.Date);
+        }
     }
 }
