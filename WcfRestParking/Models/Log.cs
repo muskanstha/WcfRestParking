@@ -65,7 +65,7 @@ namespace WcfRestParking.Models
 
         public int CompareTo(Log other)
         {
-            return this.Date.CompareTo(other.Date);
+            return other.Date.CompareTo(this.Date);
         }
     }
 }
