@@ -63,7 +63,6 @@ namespace WcfRestParking
                 addCommand.Parameters.AddWithValue("@Distance", aStatus.Distance);
 
                 int rowsAffected = addCommand.ExecuteNonQuery();
-
                 return GetStatuses();
             }
         }
